@@ -1,8 +1,19 @@
 language: java
 jdk:
 - oraclejdk8
+env:
+  global:
+  - secure: wmBVcmPv/OFW3fpDLBbBm35htpzydg2n5UizXskiogJqhhd1eScJYZEaPbv38hy2DNSfaYN5TUbxkxgwYOWmPYGICQhwbHpg0alt6ZerfesJ26Yop/Z3zU8YNB+GmFt6HCja2DEopBgHiv+qJDhf0ja15lLsvYepnJufUkgECXOlu/g0qi6uqrxOMkIyarLKHfQEE8EMZqB9XtFO+B3GVhHb4c6NPmDsUrotSykMyMO47EBN/FRF394kI8s4h8uA+OBpE8myKMXgppaWIWOv2NJp6atLBx7Ouhd8HkIoPYomu3JloDeeTs6Qd87Cl3L+ISkveSVT2y77ffjydJCBuzQybKWS+X+V8NoW4kE6knd2k5LgFQUp7p6WNFrNjI30gHeFvCPpF3VNqi8TQzZFs2mdi56mNXbkt7aaq0HEBUEQ1P8aDy2Ttc73oAxVRy57Pqvf9wcfTKt6R9w+PhgXpBI9jyMjtu25bdfOBfmQUO/9u19HgHHKPEjuSWo+fHfdl02bRzbX+il81PDG33mMNHvchZjELtfdNz5FmyFQHrHSH99WjmSnA1/rEsUFNpKU1W8oN2yVd/qdhAZbzG9421IlOduxswzPY5VRfIdiW0yw1fMlWpulLBzdWk5C1Rw+WD3UMcKxoOEebvt5WyndgBmsRTMmIqUOTbeoSTG/uyg=
+
+addons:
+  sonarcloud:
+    organization: "davidalonsobadia-github"
+    token:
+      secure: $SONAR_TOKEN
 script:
 - "./mvnw clean install -B"
+- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
+
 deploy:
   provider: heroku
   app: testing-travis-integration
