@@ -4,18 +4,16 @@ jdk:
 env:
   global:
   - secure: wmBVcmPv/OFW3fpDLBbBm35htpzydg2n5UizXskiogJqhhd1eScJYZEaPbv38hy2DNSfaYN5TUbxkxgwYOWmPYGICQhwbHpg0alt6ZerfesJ26Yop/Z3zU8YNB+GmFt6HCja2DEopBgHiv+qJDhf0ja15lLsvYepnJufUkgECXOlu/g0qi6uqrxOMkIyarLKHfQEE8EMZqB9XtFO+B3GVhHb4c6NPmDsUrotSykMyMO47EBN/FRF394kI8s4h8uA+OBpE8myKMXgppaWIWOv2NJp6atLBx7Ouhd8HkIoPYomu3JloDeeTs6Qd87Cl3L+ISkveSVT2y77ffjydJCBuzQybKWS+X+V8NoW4kE6knd2k5LgFQUp7p6WNFrNjI30gHeFvCPpF3VNqi8TQzZFs2mdi56mNXbkt7aaq0HEBUEQ1P8aDy2Ttc73oAxVRy57Pqvf9wcfTKt6R9w+PhgXpBI9jyMjtu25bdfOBfmQUO/9u19HgHHKPEjuSWo+fHfdl02bRzbX+il81PDG33mMNHvchZjELtfdNz5FmyFQHrHSH99WjmSnA1/rEsUFNpKU1W8oN2yVd/qdhAZbzG9421IlOduxswzPY5VRfIdiW0yw1fMlWpulLBzdWk5C1Rw+WD3UMcKxoOEebvt5WyndgBmsRTMmIqUOTbeoSTG/uyg=
-
 addons:
   sonarcloud:
-    organization: "davidalonsobadia-github"
+    organization: davidalonsobadia-github
     token:
-      secure: $SONAR_TOKEN
+      secure: "$SONAR_TOKEN"
 script:
 - "./mvnw clean install -B"
 - "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
-
-#deploy:
-#  provider: heroku
-#  app: testing-travis-integration
-#  api_key:
-#    secure: cnEIxwMl0jvRTmyvFGogJvcNbyAYnhR7vAbgatrvplLLG9FbseOu07rXoQmY9erxVynE+UJ9xk1m0/lmEAv9xROXcFBX6ei4fvT/9dCH1EWKC7/WuaKt0nXR2ifHFnkiA3FwbtZQsD9e88LVZECDyeAefP0/4QuHG+d/l80/je99GgPwZzyFKYeVGMmaMgAyO4vzBN+0nLnZ/15cKcJZCy6W8AXy1oXTsh2Iuh/MWX3lovLxbp/6LRy10aKqmdWcE5fu5aOiBx4ZF2/BRSAajiiEWp6udpN/Em7GyKb2w/X6VfYIy1cFKKJQIVvM46Cl45ucix6NjdbSndmP6+hbw+KB6FEneC4eCuW+6vni7zwq8/Z3VfaSGQbUUOncpNG6oxuD6zXXemBk9Oh++z554JZm+gNEIC9PS59YJHU5S8uP7ZJC1gginIvJ4VZdSmlTXw1g3zPG6Mxu9c6FgyNfm/rwviI20GcaeFOGR5jnQel6ebzQST4ZTfc3mzCDzpb2XG7lmTzmLKo38k0bDIwPAsQyDg6StWt7S+JXFzaMgIoM4f9YCEliNSIX/3Um9Xw4LjK4iAESMpynVroKONoE/xg0hD2udWHm/oqMTH0oIUGCZlPVFyjrYHIuHqlX19ZEa9XW/3TJ4IJzNZ5joNYFuilnFWPxnkclMGW4YEt44SU=
+deploy:
+  provider: heroku
+  app: testing-travis-integration
+  api_key:
+    secure: pEfqWvGiYqGn/VN/hxypDvmzpq0udZSWNplfx9UAPw/HJp7Men2ZDJbI33CBkzcYQn2uziGh+DHMa3SXKKcM0PVSavB/XtwXOQp3fm69eAYhDlqXN23+f+gnmRp0qilLZUBl6ljMFlxJjjbYHx7pMnkhgx7zLvlrPeCO9ATZYAsrsckckR9VpEWp701K4v3yPER+eQxVnelI48VBMt0TrDWbBGRlR/sxlVLXX88O4XU/KoMaKU5aC6xhp3f8YM/EZGG29MD6Mkm1iJOZ/leVTV+2xBuROrnstCKko67+ibEKTl+reywmVhBvuL1FCLwnQ5Nf9HyI22iwQasJdxPDsWkq502fPdbRoLY1bwZwuWZJQA7/JBFa9jcRcnxoFY2/5oNhKhg/NzhgyTUhkxg7A55MJCLR9hu15ZpR+9tXlQ0e8oY0aYqB2VGG0jE2RL2GJqboJzPNzhY6Zaxk9DyXqQw/CdtdoKwvCKK++wLKNXNoBI4F+4LV3BPjgnGDULxHm09ZtEVJGBkyfHg2fNFFe9uLGvyGDwiDKTth8dOs0o/Gg0FLNUmXp/tDWNC2TYJFZ1ZIlWtVtfZY0GVLhObpl4lL9SRPAZMH4jMPelnFJUv2a+kYfvAsbX+gTXYw0PWtmfPhL5reEh4ep8Ho4CZmFx+m1PsJcOF1LfLFASVBsl8=
